@@ -1,7 +1,7 @@
 # The-three-body-potential-for-vitrimer-used-in-LAMMPS
 ## Overview
 This repository contains a custom three-body potential, (sw/as), extending from the conventional Stillinger-Weber force field for the [LAMMPS](https://www.lammps.org/) molecular dynamics simulator. The potential features piecewise functions for two-body and three-body interactions, suitable for the associative binding in vitrimer.
-This plugin is adapted from the standard LAMMPS structure, maintaining a consistent usage pattern for straightforward integration.
+This plugin is adapted from the standard LAMMPS structure, maintaining a consistent usage pattern for straightforward integration. Place the **`pair_swas.cpp`** and **`pair_swas.h`** in the LAMMPS package and compile them together will achieve this potential.
 
 ---
 ## Potential Description
@@ -52,6 +52,7 @@ This plugin is adapted from the standard LAMMPS structure, maintaining a consist
 
 - **`coeff_one.swas/coeff_two.swas`**
   Examples of parameters when the potential is applied in LAMMPS, **`coeff_one.swas`** is the case that only exist one type of reactive monomer, and **`coeff_two.swas`** is the case that the potential only exist between two types of reactive monomers.
+  In LAMMPS in file, this potnetial always should be used with other two-body potential like "pair_style		hybrid/overlay lj/expand 2.5 sw/as", the pair_coeff command should be like "pair_coeff		* * sw/as coeff_two.swas A B" or "pair_coeff		* * sw/as coeff_one.swas A".
   
 - **`LICENSE`**  
   The license text. LAMMPS itself uses the [GPL license](https://www.gnu.org/licenses/gpl-3.0.html), so typically this plugin does the same to be consistent.
