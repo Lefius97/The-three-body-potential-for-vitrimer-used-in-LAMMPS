@@ -1,0 +1,1 @@
+# The-three-body-potential-for-vitrimer-used-in-LAMMPS
